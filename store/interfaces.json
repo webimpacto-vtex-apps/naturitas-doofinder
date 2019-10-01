@@ -1,0 +1,8 @@
+{
+  "pixel.doofinder": {
+    "component": "index"
+  },
+  "DoofinderSearchResult": {
+    "component": "SearchResult"
+  }
+}

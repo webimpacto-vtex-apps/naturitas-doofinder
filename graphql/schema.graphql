@@ -1,0 +1,9 @@
+type Query {
+  appSettings: Settings @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  doofinder(query: String): [Product] @cacheControl(scope: PUBLIC, maxAge: SHORT)
+}
+
+type Settings {
+  doofHashId: String
+  doofRegion: String
+}

@@ -1,0 +1,142 @@
+.df-embedded {
+    pointer-events: all!important;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    box-sizing: border-box;
+    z-index: 2147483640;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.df-banner {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0;
+    grid-row: 1;
+    -ms-grid-column: 1;
+    grid-column-start: 1;
+    grid-column-end: -1;
+}
+
+.df-embedded__content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    box-sizing: inherit;
+}
+
+.df-aside {
+    display: none;
+    margin-right: 16px;
+}
+
+.df-main {
+    width: 100%;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+.df-results {
+    display: grid;
+    min-width: 180px;
+    -ms-grid-columns: (minmax(180px, 1fr)) [auto-fill];
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-column-gap: 1px;
+    grid-row-gap: 1px;
+    grid-auto-rows: min-content;
+}
+
+@media screen and (min-width: 542px) {
+    [data-facets] .df-aside {
+        display: block;
+        width: 250px;
+    }
+}
+
+
+/* RESULTS */
+
+.df-card {
+    width: auto!important;
+    margin: 0!important;
+    border: 0!important;
+    height: 100%;
+    width: auto!important;
+    margin: 0!important;
+    border: 0!important;
+    height: 100%;
+}
+
+.df-card__main {}
+
+.df-card__image {}
+
+.df-card__content {}
+
+.df-card__title {}
+
+.df-card__description {}
+
+.df-card__pricing {}
+
+.df-card__price {}
+
+.df-card__price--old {}
+
+.df-card__price--new {}
+
+.df-no-results {}
+
+
+/* FACETS */
+
+.df-panel {
+    margin: 0 0 8px;
+    padding: 0;
+    background-color: inherit;
+}
+
+.df-panel-collapse {}
+
+.df-panel-collapse a::after {
+    content: '-';
+    float: right;
+    font-size: 23px;
+    line-height: 10px;
+    font-weight: 500;
+}
+
+.df-panel__title {
+    display: block;
+    padding: 8px 16px;
+    margin: 0;
+    max-height: 32px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.df-panel__content {}
