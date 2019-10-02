@@ -2,6 +2,7 @@ import { canUseDOM } from 'vtex.render-runtime'
 import { doofinderTemplate, doofinderResultsTemplate, doofinderFacetsTemplate } from './components/template'
 import { parse_query_string, loadScript } from './utils'
 
+
 if (canUseDOM) {
   const { __doofHashId__, __doofRegion__ } = window;
   /*if (__doofHashId__ && __doofRegion__) {
@@ -27,7 +28,7 @@ if (canUseDOM) {
       },
       mainContainerId: 'vtex-embedded',
       searchParams: {
-        rpp: 24
+        rpp: 25
       },
       "display": {
         "lang": 'it',
@@ -65,6 +66,10 @@ if (canUseDOM) {
           var evt = document.createEvent("HTMLEvents");
           evt.initEvent("df:input:valueChanged");
           queryInput.dispatchEvent(evt)
+        
+        },
+        resultsReceived: function(response:any){
+          test(response)
         }
       }
     }];
@@ -78,3 +83,86 @@ if (canUseDOM) {
 
 }
 
+function test (result:any){
+  
+  if(typeof result.facets != "undefined"){
+      customizarFacetas(result.facets)
+  }
+  if(typeof result.results != "undefined"){
+      customizarProductos(result.results )
+  }
+}
+
+function customizarFacetas(facets:any){
+  if(typeof facets.categories != "undefined"){
+    if(typeof facets.categories.terms.buckets != "undefined"){
+      facets.categories.terms.buckets.forEach(function (c:any){
+          var term=c["key"];
+          var termArray=term.split("-");
+          var termCustom=termArray[termArray.length-1];
+          if(termCustom.charAt(0) == " "){
+              termCustom=termCustom.replace(" ","")
+          }
+          const catFac:any =document.querySelector('.df-term[data-value="'+term+'"] span.df-term__value');
+          
+          if(catFac){
+            if(typeof termCustom == "string"){
+              catFac.innerHTML = termCustom
+            }
+          }
+      })
+  }
+  }
+}
+
+function customizarProductos(products:any){
+  products.forEach(function (p:any) {
+        var aux=p.subtitle;
+        var namePrint= p.title.replace("- "+aux,"");
+        var ele:any =  document.querySelector(".webimpacto-naturitas-doofinder-0-x-df-card__title[data-title='"+ p.id+"']")
+        if(ele){
+          ele.innerHTML = namePrint
+        }
+
+        var auxPrice=(p["price"].toFixed(2)).toString().replace(".",",");
+        var auxOldPrice=p["g:original_price"];
+
+        if(auxPrice == auxOldPrice){
+          var eleprice:any =  document.querySelector(".df-card__pricing[data-id='"+ p.id+"'] .df-card__price--old");
+          if(eleprice){
+            eleprice.innerHTML = "";
+          }
+        }
+
+        var auxNotBrand='Not or Bad Specified Brand';
+        var elebrand:any =  document.querySelector(".df-card__brand[data-id='"+ p.id+"']");
+        if(p.brand == auxNotBrand){
+          if(elebrand){
+            elebrand.innerHTML = "";
+          }
+        }else if(elebrand){
+          elebrand.innerHTML =  p.brand;
+        }
+
+
+        if(typeof  p.reviews_data != "undefined" && typeof p.reviews_data != null && p.reviews_data != null){
+         
+            if(p.reviews_data.length){
+              
+              var elevaloracion: any = document.querySelector(".valoracion-product[data-id='"+ p.id+"']");
+              if(elevaloracion){
+                elevaloracion.classList.add("with-review");
+                var auxReviews=JSON.parse(p.reviews_data);
+                var porcentaje=(100*parseFloat(auxReviews["reviews_score"])/5)-1;  
+                var aux:any= document.querySelector(".valoracion-product[data-id='"+ p.id+"'] .porcentaje")
+                aux.setAttribute("style","width: "+porcentaje+"%")
+                var auxQuantity=auxReviews["reviews_number"];
+                var eleauxQuantity: any = document.querySelector(".valoracion-product[data-id='"+ p.id+"'] .porcentaje .quantity-porcentaje")
+                eleauxQuantity.innerHTML = "("+auxQuantity+")"
+              }
+            }
+          }
+         
+        
+  })
+}

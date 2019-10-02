@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import ReactDOMServer from 'react-dom/server';
 import styles from '../style.css'
+import "../global.css"
 
 const doofinderTemplateComponent = (
     <div className={styles[`df-embedded`]} id="vtex-embedded" hidden>
@@ -27,21 +28,27 @@ const doofinderResultsTemplateComponent =
                     <img src="{{#remove-protocol}}{{image_link}}{{/remove-protocol}}" alt="{{title}}" />
                 </figure>
                 {`{{/image_link}}`}
-                <div className={styles["df-card__content"]}>
-                    <div className={styles["df-card__title"]}>{`{{title}}`}</div>
-                    <div className={styles["df-card__description"]}>{`{{{description}}}`}</div>
+                <div className={styles["df-card__content"]} data-id="{{id}}">
+                    <div className="df-card__brand" data-id="{{id}}"></div>
+                    <div className={styles["df-card__title"]} data-title="{{id}}">{`{{title}}`}</div>
+                    <div className="subtitle" data-title="{{id}}"></div>
+                    <span className="valoracion-product  " data-id="{{#id}}{{id}}{{/id}}" data-reviews="{{reviews_data}}"><span className="porcentaje"><span className="quantity-porcentaje"></span></span></span>
                     {`{{#price}}`}
-                    <div className={styles["df-card__pricing"]}>
+                    <div className={styles["df-card__pricing"]} data-id="{{#id}}{{id}}{{/id}}">
                         <span className={`${styles['df-card__price']} {{#g:original_price}}${styles['df-card__price--old']}{{/g:original_price}}`}>
-                        {`{{g:original_price}}`}
+                        {`{{g:original_price}}`} €
                         </span>
                         
                         <span className="df-card__price df-card__price--new">
-                            {`{{price}}`}
+                            {`{{price}}`} €
                         </span>
                         
                     </div>
                     {`{{/price}}`}
+                </div>
+                <div className="df-addtocartmb">
+                <a href="{{#url-params}}{{link}}{{/url-params}}" className="my-df-addtocart-btn btn-cart ajx-cart btn" data-addtocart="{{id}}">
+                Vedere Prodotto</a>
                 </div>
             </a>
         </div>
@@ -60,8 +67,7 @@ const doofinderFacetsTemplateComponent = (
             href="#">
             {`{{ label }}`}
         </a>
-        <div className={styles["df-panel__content"]} id="{{contentElement}}"
-            data-role="panel-content"></div>
+        <div className={`${styles["df-panel__content"]} df-panel__content`} id="{{contentElement}}" data-role="panel-content"></div>
     </div>
 )
 
