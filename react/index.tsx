@@ -118,12 +118,16 @@ function customizarFacetas(facets:any){
 function customizarProductos(products:any){
   products.forEach(function (p:any) {
         var aux=p.subtitle;
+        console.log("ana:",p.subtitle)
         var namePrint= p.title.replace("- "+aux,"");
         var ele:any =  document.querySelector(".webimpacto-naturitas-doofinder-0-x-df-card__title[data-title='"+ p.id+"']")
+        var eleSubtitle:any =  document.querySelector(".subtitle[data-title='"+ p.id+"']")
         if(ele){
           ele.innerHTML = namePrint
         }
-
+        if(eleSubtitle){
+          eleSubtitle.innerHTML = aux
+        }
         var auxPrice=(p["price"].toFixed(2)).toString().replace(".",",");
         var auxOldPrice=p["g:original_price"];
 
