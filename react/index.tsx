@@ -28,7 +28,7 @@ if (canUseDOM) {
       },
       mainContainerId: 'vtex-embedded',
       searchParams: {
-        rpp: 25
+        rpp: 24
       },
       "display": {
         "lang": 'it',
@@ -130,6 +130,11 @@ function customizarProductos(products: any) {
 
     var auxPrice = (p["price"].toFixed(2)).toString().replace(".", ",");
     var auxOldPrice = p["g:original_price"];
+
+    var elePriceOriginal: any = document.querySelector(".original-price[data-id='" + p.id + "']");
+    if(elePriceOriginal){
+      elePriceOriginal.innerHTML= auxPrice+" €";
+    }
 
     if (auxPrice == auxOldPrice) {
       var eleprice: any = document.querySelector(".df-card__pricing[data-id='" + p.id + "'] .df-card__price--old");

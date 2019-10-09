@@ -39,7 +39,7 @@ const doofinderResultsTemplateComponent =
                         {`{{g:original_price}}`} €
                         </span>
                         
-                        <span className="df-card__price df-card__price--new">
+                        <span className="df-card__price df-card__price--new original-price" data-id="{{#id}}{{id}}{{/id}}">
                             {`{{price}}`} €
                         </span>
                         
