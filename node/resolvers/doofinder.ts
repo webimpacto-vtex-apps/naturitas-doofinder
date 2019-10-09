@@ -36,8 +36,6 @@ async function doofinderAPISearch(ctx: ServiceContext, query: string) {
     'filter[categories][0]': ["Integratori - Fitoterapia"]
   }
 
-  console.log(params);
-
   let results = await axios.get(`https://${settings.doofRegion}-search.doofinder.com/5/search`, {params, headers })
 
   return results.data

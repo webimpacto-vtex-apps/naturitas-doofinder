@@ -49,8 +49,8 @@
 
 .df-aside {
     display: none;
-    margin-right: 16px;
 }
+
 .df-aside:after {
     position: absolute;
     top: 0;
@@ -63,6 +63,7 @@
     content: "\E953";
     color: silver;
 }
+
 .df-main {
     width: 100%;
     -webkit-box-flex: 1;
@@ -90,28 +91,30 @@
         display: block;
         width: 250px;
     }
-  
 }
-
 
 /* RESULTS */
 
 .df-card {
-    width: 20%!important;
-    max-width: 20%!important;
-    padding: 20px 5px;
+    width: 25%!important;
+    max-width: 25%!important;
+    padding: 20px 15px;
     margin: 0!important;
     border: 0!important;
 }
+
 .df-card:hover {
     background-color: #fff!important;
-    box-shadow: 0 0 5px 2px #eee;
     border-radius: 5px;
     z-index: 2;
 }
 
+.df-card a:hover {
+    text-decoration: none;
+}
 
-.df-card__image{
+.df-card__image {
+    border-bottom: 1px dotted #D3D3D3;
     background-color: #fff;
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 auto;
@@ -133,10 +136,10 @@
     -ms-flex-align: center;
     align-items: center;
     height: auto;
-    margin: 0 0 16px;
+    padding: 0 0 16px;
 }
 
-.df-card__image img{
+.df-card__image img {
     display: block;
     max-height: 100%;
     max-width: 100%;
@@ -148,22 +151,20 @@
     width: auto;
 }
 
-
-
 .df-card__title {
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     font-family: brandon-grotesque;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     text-align: left;
     margin-bottom: 0;
     color: #4a4a4a;
-    min-height: 40px;
+    line-height: 18px;
     max-height: 40px;
+    min-height: 40px;
 }
-
 
 .df-card span.valoracion-product {
     min-height: 11px;
@@ -172,6 +173,7 @@
     position: relative;
     max-height: 11px;
 }
+
 .df-card span.valoracion-product .porcentaje {
     content: "";
     height: 11px;
@@ -179,6 +181,7 @@
     background-size: contain;
     margin-left: 2.5px;
 }
+
 .df-card .df-card__pricing {
     font-size: 18px;
     font-weight: 700;
@@ -188,6 +191,12 @@
     display: block;
     margin-bottom: 0!important;
     text-align: left;
+}
+
+.df-card .df-card__pricing>span {
+    margin-left: 0!important;
+    margin-right: 0!important;
+    font-size: 24px;
 }
 
 .df-card .df-card__pricing .df-card__price--old {
@@ -200,15 +209,18 @@
     text-decoration: line-through;
     min-height: 20px;
 }
+
 .df-card .df-card__pricing .df-card__price--new {
     color: #4a4a4a;
     display: block;
     margin-left: 0;
 }
+
 .df-addtocartmb {
     margin-top: 10px;
     display: block;
 }
+
 a.my-df-addtocart-btn.btn-cart.ajx-cart.btn, button.my-df-addtocart-btn.btn-cart.ajx-cart.btn {
     display: block;
     border-radius: 3px;
@@ -220,25 +232,21 @@ a.my-df-addtocart-btn.btn-cart.ajx-cart.btn, button.my-df-addtocart-btn.btn-cart
     font-weight: 700;
     line-height: 16px;
     text-align: center;
-    padding: 2px 0;
+    padding: 5px 3px;
     border: none;
     width: 100%;
     text-transform: uppercase;
     outline: none!important;
 }
 
-
-
 /* FACETS */
-.df-aside{
-    border: 1px solid #eee;
-    padding: 32px 0 0;
+
+.df-aside {
     position: relative;
-    background: #fafafa;
     height: 100%;
 }
 
-.df-aside:before {
+/*.df-aside:before {
     content: "Filtros";
     position: absolute;
     top: 0;
@@ -246,51 +254,71 @@ a.my-df-addtocart-btn.btn-cart.ajx-cart.btn, button.my-df-addtocart-btn.btn-cart
     right: 0;
     height: auto;
     padding: 10px;
-    background-color: #f4f3f1;
-    border-bottom: 1px solid #e4e2e2;
-    border-left: 1px solid #e4e2e2;
+    background-color: #FBFAF9;
+    border: 1px solid #e4e2e2;
+    border-radius: 6px;
     color: #4a4a4a;
     text-align: center;
     font-family: brandon-grotesque;
     font-size: 14px;
     font-weight: 500;
+}*/
+
+.df-aside:after {
+    display: none;
 }
+
+.df-panel:first {
+    /*margin-top: 1rem;*/
+}
+
 .df-panel {
-    margin: 0 0 8px;
-    padding: 0;
+    border-radius: 6px;
+    border: 1px solid #EBE7E4;
+    background-color: #FBFAF9!important;
+    padding: 8px;
+    margin-bottom: 1rem!important;
     background-color: inherit;
 }
 
-
 .df-panel__title:after {
     content: '-';
-    float: right;
-    font-size: 23px;
-    line-height: 10px;
-    font-weight: 500;
-    margin-top: 10px;
+    top: 27px;
+    right: 20px;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    text-indent: -9999px;
+    border-top: 2px solid #4a4a4a;
+    border-left: 2px solid #4a4a4a;
+    transition: all 250ms ease-in-out;
+    text-decoration: none;
+    color: transparent;
+    transform: rotate(45deg);
+    cursor: pointer;
 }
 
 .df-panel__title {
     display: block;
-    padding: 8px 16px;
+    padding: 16px;
     margin: 0;
-    max-height: 36px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: bold;
     text-decoration: none;
     font-family: brandon-grotesque;
-    font-size: 16px;
-    font-weight: 700;
     color: #4a4a4a;
     border: none!important;
     outline: none;
     background: none!important;
     position: relative;
-    line-height: 32px;
+    cursor: initial;
 }
-.df-panel__title:hover{
-    color: #4a4a4a; 
+
+.df-panel__title:hover {
+    color: #4a4a4a;
+    text-decoration: none;
 }
+
 .df-term {
     font-size: 13px;
     color: #333;
@@ -298,7 +326,7 @@ a.my-df-addtocart-btn.btn-cart.ajx-cart.btn, button.my-df-addtocart-btn.btn-cart
     font-weight: 500;
 }
 
-@media (max-width: 769){
+@media (max-width: 769) {
     .df-card {
         width: 33%!important;
         max-width: 33%!important;

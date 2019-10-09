@@ -1,139 +1,196 @@
-.df-panel-collapse {
-    border-bottom: 1px solid #edebe5;
+.df-panel-collapse {}
+
+.df-panel[data-facet='categories'] .df-term .df-term__value, .df-panel[data-facet='brand'] .df-term .df-term__value, .df-panel[data-facet='flags'] .df-term .df-term__value, .df-panel[data-facet='content_format'] .df-term .df-term__value {
+  color: #4A4A4A;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
 }
+
+.df-panel .df-term .df-term__value:hover {
+  opacity: 0.6;
+}
+
+.df-panel .df-term .df-term__count {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
 .df-panel[data-facet=reviews_data] {
-    display: none;
+  display: none;
 }
-.df-panel[data-facet='reviews_score'] .df-term .df-term__value{
-    max-width: 106px;
-    background-image: "";
-    font-size: 0;
-    background-size: contain;
-    height: 18px;
-}
+
 .df-panel[data-facet='reviews_score'] .df-term .df-term__value {
-    max-width: 106px;
-    background-image: url(./img/star_off.png);
-    font-size: 0;
-    background-size: contain;
-    height: 18px;
+  max-width: 106px;
+  background-image: "";
+  font-size: 0;
+  background-size: contain;
+  height: 18px;
+}
+
+.df-panel[data-facet='reviews_score'] .df-term .df-term__value {
+  max-width: 106px;
+  background-image: url(./img/star_off.png);
+  font-size: 0;
+  background-size: contain;
+  height: 18px;
 }
 
 .df-panel[data-facet="reviews_score"] .df-term .df-term__value:after {
-    background-image: url(./img/star_on.png);
-    content: "";
+  background-image: url(./img/star_on.png);
+  content: "";
   display: block;
   height: 18px;
   z-index: 999;
   background-size: contain;
   margin-left: 2px;
-  }
- .df-panel[data-facet="reviews_score"] .df-term[data-value="1"] .df-term__value:after{
-    width: 18%;
-  }
-  .df-panel[data-facet="reviews_score"] .df-term[data-value="2"] .df-term__value:after{
-    width: 38%;
-  }
-  .df-panel[data-facet="reviews_score"] .df-term[data-value="3"] .df-term__value:after{
-    width: 56%;
-  }
- .df-panel[data-facet="reviews_score"] .df-term[data-value="4"] .df-term__value:after{
-    width: 75%;
-  }
- .df-panel[data-facet="reviews_score"] .df-term[data-value="5"] .df-term__value:after{
-    width: 95%;
-  
-  }
-  span.valoracion-product.with-review{
-    background-image: url(./img/star_off.png);
-  }
-  span.valoracion-product.with-review .porcentaje{
-    background-image: url(./img/star_on.png);
-    display: block;
+}
 
-    height: 11px;
-    min-height: 11px;
-    background-size: contain;
-    margin-left: 2px;
-  }
-  span.valoracion-product.with-review span.quantity-porcentaje {
-    display: block;
-    right: -20px;
-    font-size: 9px;
-    float: right;
-    text-align: right;
-    position: absolute;
-    color: #808080;
-  }
-  span.valoracion-product {
-    min-height: 11px;
-    background-size: contain;
-    max-width: 65px;
-    position: relative;
-    max-height: 11px;
-    display: block;
+.df-panel[data-facet="reviews_score"] .df-term[data-value="1"] .df-term__value:after {
+  width: 18%;
 }
-.df-panel[data-collapse=true] .df-panel__content{
-    display: none;
+
+.df-panel[data-facet="reviews_score"] .df-term[data-value="2"] .df-term__value:after {
+  width: 38%;
 }
+
+.df-panel[data-facet="reviews_score"] .df-term[data-value="3"] .df-term__value:after {
+  width: 56%;
+}
+
+.df-panel[data-facet="reviews_score"] .df-term[data-value="4"] .df-term__value:after {
+  width: 75%;
+}
+
+.df-panel[data-facet="reviews_score"] .df-term[data-value="5"] .df-term__value:after {
+  width: 95%;
+}
+
+span.valoracion-product.with-review {
+  background-image: url(./img/star_off.png);
+}
+
+span.valoracion-product.with-review .porcentaje {
+  background-image: url(./img/star_on.png);
+  display: block;
+  height: 11px;
+  min-height: 11px;
+  background-size: contain;
+  margin-left: 2px;
+}
+
+span.valoracion-product.with-review span.quantity-porcentaje {
+  display: block;
+  right: -20px;
+  font-size: 9px;
+  float: right;
+  text-align: right;
+  position: absolute;
+  color: #808080;
+}
+
+span.valoracion-product {
+  min-height: 11px;
+  background-size: contain;
+  max-width: 65px;
+  position: relative;
+  max-height: 11px;
+  display: block;
+}
+
+.df-panel[data-collapse=true] .df-panel__content {
+  display: none;
+}
+
 .df-panel__content {
-    padding: 8px;
+  padding: 8px;
 }
-html[lang="it"] .webimpacto-naturitas-doofinder-0-x-df-aside:before {
-    content: "Filtri";
-}
+
+/*html[lang="it"] .webimpacto-naturitas-doofinder-0-x-df-aside:before {
+  content: "Filtri";
+}*/
+
 .df-panel-collapse[data-collapse=true] .webimpacto-naturitas-doofinder-0-x-df-panel__title:after {
-    float: right;
-    font-size: 23px;
-    line-height: 18px;
-    font-weight: 500;
-    content: "+";
-    margin-top: 10px;
+  content: "+";
+  top: 24px;
+  right: 20px;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  text-indent: -9999px;
+  border-top: 2px solid #4a4a4a;
+  border-left: 2px solid #4a4a4a;
+  transition: all 250ms ease-in-out;
+  text-decoration: none;
+  color: transparent;
+  transform: rotate(225deg);
+  cursor: pointer;
 }
-.df-header-title{
-    text-align: center;
+
+.df-header-title {
+  text-align: center;
 }
+
 div#vtex-embedded {
-    padding-top: 25px;
+  padding-top: 50px;
 }
-.df-card__brand{
-    width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-family: brandon-grotesque;
-    font-size: 14px;
-    font-weight: 500;
-    text-align: left;
-    margin-bottom: 0;
-    white-space: nowrap;
-    color: #9b9b9b;
+
+.df-card__brand {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: brandon-grotesque;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  margin-bottom: 0;
+  white-space: nowrap;
+  color: #9b9b9b;
 }
+
 .df-panel.df-panel-collapse:last-child {
-    margin-bottom: 0px;
-    border-bottom: none;
+  margin-bottom: 0px;
 }
-[data-role=panel-content] :hover[data-toggle-extra-content], [data-role=panel-content] [data-toggle-extra-content] {
-    color: silver;
-    font-family: brandon-grotesque;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 33px;
-    padding: .5em 1em;
-    user-select: none;
-    vertical-align: middle;
-    white-space: nowrap;
-    width: 100%;
-    float: none;
-} 
+
 .subtitle {
-    color: silver;
-    text-align: left;
-    font-family: brandon-grotesque;
-    font-size: 12px;
-    margin-bottom: 0;
-    line-height: 18px;
-    font-weight: 500;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+  color: silver;
+  text-align: left;
+  font-family: brandon-grotesque;
+  font-size: 12px;
+  margin-bottom: 0;
+  line-height: 18px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+[data-role=panel-content] [data-toggle-extra-content] {
+  color: #4A4A4A!important;
+  font-size: 16px!important;
+  font-weight: 500!important;
+  line-height: 31px!important;
+  text-align: left!important;
+  padding: 4px 8px!important;
+}
+
+[data-role=panel-content] :hover[data-toggle-extra-content] {
+  opacity: 0.6;
+}
+
+.my-df-addtocart-btn {
+  padding: 5px 3px!important;
+  box-shadow: none!important;
+  background: #ffffff!important;
+  color: #5cb8a3!important;
+  border-radius: 6px!important;
+  border-color: #5cb8a3!important;
+  border: 1px solid!important;
+  cursor: pointer!important;
+}
+
+.my-df-addtocart-btn:hover {
+  background: #5cb8a3!important;
+  color: #ffffff!important;
 }
