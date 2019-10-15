@@ -18,7 +18,6 @@ if (canUseDOM) {
   }*/
 
   if (__doofHashId__ && __doofRegion__) {
-
     window.dfEmbeddedLayers = [{
       "queryInput": "#query_input_id",
       "hashid": __doofHashId__,
@@ -84,7 +83,6 @@ if (canUseDOM) {
 }
 
 function test(result: any) {
-
   if (typeof result.facets != "undefined") {
     customizarFacetas(result.facets)
   }
@@ -103,12 +101,70 @@ function customizarFacetas(facets: any) {
         if (termCustom.charAt(0) == " ") {
           termCustom = termCustom.replace(" ", "")
         }
-        const catFac: any = document.querySelector('.df-term[data-value="' + term + '"] span.df-term__value');
 
+        const quantity: any = document.querySelector('.df-term[data-value="' + term + '"] span.df-term__count');
+        if (quantity) {
+          quantity.innerHTML = "(" + c.doc_count + ")"
+        }
+        
+        const catFac: any = document.querySelector('.df-term[data-value="' + term + '"] span.df-term__value');
         if (catFac) {
           if (typeof termCustom == "string") {
             catFac.innerHTML = termCustom
           }
+        }
+
+        const wrapper: any = document.querySelector('.df-term[data-value="' + term + '"] span.df-term__value');
+        wrapper.appendChild(quantity);
+      })
+    }
+    if (typeof facets.brand.terms.buckets != "undefined") {
+      facets.brand.terms.buckets.forEach(function (c: any) {
+        var term = c["key"];
+        const quantity: any = document.querySelector('.df-term[data-value="' + term + '"] span.df-term__count');
+        if (quantity) {
+          quantity.innerHTML = "(" + c.doc_count + ")"
+        }
+        const wrapper: any = document.querySelector('.df-term[data-value="' + term + '"] span.df-term__value');
+        wrapper.appendChild(quantity);
+      })
+    }
+    if (typeof facets.flags.terms.buckets != "undefined") {
+      facets.flags.terms.buckets.forEach(function (c: any) {
+        var term = c["key"];
+        const name: any = document.querySelector('.df-term[data-value="' + term + '"] span.df-term__value');
+        if (name) {
+          name.innerHTML = term.charAt(0).toUpperCase() + term.slice(1);
+        }
+        const quantity: any = document.querySelector('.df-term[data-value="' + term + '"] span.df-term__count');
+        if (quantity) {
+          quantity.innerHTML = "(" + c.doc_count + ")"
+        }
+        const wrapper: any = document.querySelector('.df-term[data-value="' + term + '"] span.df-term__value');
+        wrapper.appendChild(quantity);
+      })
+    }
+    if (typeof facets.content_format.terms.buckets != "undefined") {
+      facets.content_format.terms.buckets.forEach(function (c: any) {
+        var term = c["key"];
+        const name: any = document.querySelector('.df-term[data-value="' + term + '"] span.df-term__value');
+        if (name) {
+          name.innerHTML = term.charAt(0).toUpperCase() + term.slice(1);
+        }
+        const quantity: any = document.querySelector('.df-term[data-value="' + term + '"] span.df-term__count');
+        if (quantity) {
+          quantity.innerHTML = "(" + c.doc_count + ")"
+        }
+        const wrapper: any = document.querySelector('.df-term[data-value="' + term + '"] span.df-term__value');
+        wrapper.appendChild(quantity);
+      })
+    }
+    if (typeof facets["reviews_score"].terms.buckets != "undefined") {
+      facets["reviews_score"].terms.buckets.forEach(function (c: any) {
+        var term = c["key"];
+        const quantity: any = document.querySelector('.df-term[data-value="' + term + '"] span.df-term__count');
+        if (quantity) {
+          quantity.innerHTML = "(" + c.doc_count + ")"
         }
       })
     }
@@ -132,8 +188,8 @@ function customizarProductos(products: any) {
     var auxOldPrice = p["g:original_price"];
 
     var elePriceOriginal: any = document.querySelector(".original-price[data-id='" + p.id + "']");
-    if(elePriceOriginal){
-      elePriceOriginal.innerHTML= auxPrice+" €";
+    if (elePriceOriginal) {
+      elePriceOriginal.innerHTML = auxPrice + " €";
     }
 
     if (auxPrice == auxOldPrice) {
@@ -141,7 +197,14 @@ function customizarProductos(products: any) {
       if (eleprice) {
         eleprice.innerHTML = "";
       }
+    } else {
+      var descuento = (100 - ((parseFloat(auxPrice.replace(",",".")) * 100) / parseFloat(auxOldPrice.replace(",",".")))).toFixed(0);
+      var queryDescuento: any = document.querySelector(".discounts[data-id='" + p.id + "'] .discounts-container");
+      if(queryDescuento){
+        queryDescuento.innerHTML="-"+descuento+"%";
+      }
     }
+
 
     var auxNotBrand = 'Not or Bad Specified Brand';
     var elebrand: any = document.querySelector(".df-card__brand[data-id='" + p.id + "']");

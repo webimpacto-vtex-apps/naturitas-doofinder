@@ -24,6 +24,7 @@ const doofinderResultsTemplateComponent =
         <div className={styles[`df-card`]} data-role="result">
             <a className={styles['df-card__main']} href="{{#url-params}}{{{link}}}{{/url-params}}" data-role="result-link" data-dfid="{{dfid}}">
                 {`{{#image_link}}`}
+                <div className="discounts" data-id="{{id}}"><div className="triangle"><div className="discounts-container"></div></div></div>
                 <figure className={styles["df-card__image"]}>
                     <img src="{{#remove-protocol}}{{image_link}}{{/remove-protocol}}" alt="{{title}}" />
                 </figure>
@@ -38,17 +39,16 @@ const doofinderResultsTemplateComponent =
                         <span className={`${styles['df-card__price']} {{#g:original_price}}${styles['df-card__price--old']}{{/g:original_price}}`}>
                         {`{{g:original_price}}`} €
                         </span>
-                        
                         <span className="df-card__price df-card__price--new original-price" data-id="{{#id}}{{id}}{{/id}}">
                             {`{{price}}`} €
                         </span>
-                        
                     </div>
                     {`{{/price}}`}
                 </div>
                 <div className="df-addtocartmb">
                 <a href="{{#url-params}}{{link}}{{/url-params}}" className="my-df-addtocart-btn btn-cart ajx-cart btn" data-addtocart="{{id}}">
-                Vedere Prodotto</a>
+                Guarda il prodotto</a>
+                <a className="btn btn-primary addToCart" href="#"></a>
                 </div>
             </a>
         </div>

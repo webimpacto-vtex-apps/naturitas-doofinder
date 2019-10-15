@@ -35,20 +35,22 @@
 }
 
 .df-embedded__content {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-flow: row nowrap;
-    -ms-flex-flow: row nowrap;
-    flex-flow: row nowrap;
-    box-sizing: inherit;
+    display: block;
 }
 
-.df-aside {
-    display: none;
+@media (min-width: 768px) {
+    .df-embedded__content {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-flow: row nowrap;
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        box-sizing: inherit;
+    }
 }
 
 .df-aside:after {
@@ -66,10 +68,26 @@
 
 .df-main {
     width: 100%;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1 1 auto;
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
+}
+
+@media (min-width: 768px) {
+    .df-main {
+        width: 70%;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .df-main {
+        width: 80%;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+    }
 }
 
 .df-results {
@@ -83,28 +101,63 @@
     display: flex!important;
     flex-wrap: wrap;
     justify-content: flex-start;
-    padding: 20px 20px 0;
 }
 
-@media screen and (min-width: 542px) {
+@media (min-width: 768px) {
+    .df-results {
+        
+    }
+}
+
+[data-facets] .df-aside {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
     [data-facets] .df-aside {
         display: block;
-        width: 250px;
+        width: 30%;
+    }
+}
+
+@media (min-width: 992px) {
+    [data-facets] .df-aside {
+        display: block;
+        width: 20%;
     }
 }
 
 /* RESULTS */
 
 .df-card {
-    width: 25%!important;
-    max-width: 25%!important;
-    padding: 20px 15px;
+    width: 50%;
+    max-width: 50%;
     margin: 0!important;
     border: 0!important;
+    padding-top: 20px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+@media(min-width: 992px) {
+    .df-card {
+        width: 33%;
+        max-width: 33%;
+        margin: 0!important;
+        border: 0!important;
+    }
+}
+
+@media(min-width: 1200px) {
+    .df-card {
+        width: 25%;
+        max-width: 25%;
+        margin: 0!important;
+        border: 0!important;
+    }
 }
 
 .df-card:hover {
-    background-color: #fff!important;
     border-radius: 5px;
     z-index: 2;
 }
@@ -136,7 +189,7 @@
     -ms-flex-align: center;
     align-items: center;
     height: auto;
-    padding: 0 0 16px;
+    margin-bottom: 0px;
 }
 
 .df-card__image img {
@@ -162,8 +215,6 @@
     margin-bottom: 0;
     color: #4a4a4a;
     line-height: 18px;
-    max-height: 40px;
-    min-height: 40px;
 }
 
 .df-card span.valoracion-product {
@@ -203,21 +254,26 @@
     display: block;
     font-size: 13px;
     color: #9b9b9b;
-    line-height: 19px;
     letter-spacing: 0;
     margin-left: 0;
     text-decoration: line-through;
-    min-height: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 29px;
+    height: 19px;
 }
 
 .df-card .df-card__pricing .df-card__price--new {
     color: #4a4a4a;
     display: block;
     margin-left: 0;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -.2px;
+    line-height: 30px;
 }
 
 .df-addtocartmb {
-    margin-top: 10px;
     display: block;
 }
 
@@ -300,7 +356,6 @@ a.my-df-addtocart-btn.btn-cart.ajx-cart.btn, button.my-df-addtocart-btn.btn-cart
 
 .df-panel__title {
     display: block;
-    padding: 16px;
     margin: 0;
     font-size: 18px;
     font-weight: bold;
@@ -324,6 +379,7 @@ a.my-df-addtocart-btn.btn-cart.ajx-cart.btn, button.my-df-addtocart-btn.btn-cart
     color: #333;
     font-family: brandon-grotesque;
     font-weight: 500;
+    padding: 4px 0px;
 }
 
 @media (max-width: 769) {
