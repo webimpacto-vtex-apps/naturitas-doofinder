@@ -2,7 +2,6 @@ import { canUseDOM } from 'vtex.render-runtime'
 import { doofinderTemplate, doofinderResultsTemplate, doofinderFacetsTemplate } from './components/template'
 import { parse_query_string, loadScript } from './utils'
 
-
 if (canUseDOM) {
   const { __doofHashId__, __doofRegion__ } = window;
   /*if (__doofHashId__ && __doofRegion__) {
@@ -65,7 +64,6 @@ if (canUseDOM) {
           var evt = document.createEvent("HTMLEvents");
           evt.initEvent("df:input:valueChanged");
           queryInput.dispatchEvent(evt)
-
         },
         resultsReceived: function (response: any) {
           test(response)
@@ -78,8 +76,6 @@ if (canUseDOM) {
   } else {
     console.error("Doofinder HashID or Region is empty. Please fill at the APP config in VTEX Admin");
   }
-
-
 }
 
 function test(result: any) {
@@ -106,7 +102,7 @@ function customizarFacetas(facets: any) {
         if (quantity) {
           quantity.innerHTML = "(" + c.doc_count + ")"
         }
-        
+
         const catFac: any = document.querySelector('.df-term[data-value="' + term + '"] span.df-term__value');
         if (catFac) {
           if (typeof termCustom == "string") {
@@ -115,7 +111,9 @@ function customizarFacetas(facets: any) {
         }
 
         const wrapper: any = document.querySelector('.df-term[data-value="' + term + '"] span.df-term__value');
-        wrapper.appendChild(quantity);
+        if(wrapper && quantity) {
+          wrapper.appendChild(quantity);
+        }
       })
     }
     if (typeof facets.brand.terms.buckets != "undefined") {
@@ -126,7 +124,9 @@ function customizarFacetas(facets: any) {
           quantity.innerHTML = "(" + c.doc_count + ")"
         }
         const wrapper: any = document.querySelector('.df-term[data-value="' + term + '"] span.df-term__value');
-        wrapper.appendChild(quantity);
+        if(wrapper && quantity) {
+          wrapper.appendChild(quantity);
+        }
       })
     }
     if (typeof facets.flags.terms.buckets != "undefined") {
@@ -141,7 +141,9 @@ function customizarFacetas(facets: any) {
           quantity.innerHTML = "(" + c.doc_count + ")"
         }
         const wrapper: any = document.querySelector('.df-term[data-value="' + term + '"] span.df-term__value');
-        wrapper.appendChild(quantity);
+        if(wrapper && quantity) {
+          wrapper.appendChild(quantity);
+        }
       })
     }
     if (typeof facets.content_format.terms.buckets != "undefined") {
@@ -156,7 +158,9 @@ function customizarFacetas(facets: any) {
           quantity.innerHTML = "(" + c.doc_count + ")"
         }
         const wrapper: any = document.querySelector('.df-term[data-value="' + term + '"] span.df-term__value');
-        wrapper.appendChild(quantity);
+        if(wrapper && quantity) {
+          wrapper.appendChild(quantity);
+        }
       })
     }
     if (typeof facets["reviews_score"].terms.buckets != "undefined") {
@@ -198,10 +202,10 @@ function customizarProductos(products: any) {
         eleprice.innerHTML = "";
       }
     } else {
-      var descuento = (100 - ((parseFloat(auxPrice.replace(",",".")) * 100) / parseFloat(auxOldPrice.replace(",",".")))).toFixed(0);
+      var descuento = (100 - ((parseFloat(auxPrice.replace(",", ".")) * 100) / parseFloat(auxOldPrice.replace(",", ".")))).toFixed(0);
       var queryDescuento: any = document.querySelector(".discounts[data-id='" + p.id + "'] .discounts-container");
-      if(queryDescuento){
-        queryDescuento.innerHTML="-"+descuento+"%";
+      if (queryDescuento) {
+        queryDescuento.innerHTML = "-" + descuento + "%";
       }
     }
 
@@ -233,5 +237,46 @@ function customizarProductos(products: any) {
         }
       }
     }
+
+    const button: any = document.querySelector(".btn.btn-primary.addToCart[data-id='" + p.id + "']");
+    if (button) {
+      button.addEventListener("click",function() {
+        customAddToCart(p.id, button, event);
+      },false);
+    }
   })
+}
+
+function customAddToCart(id: any, button:any, event: any) {
+  console.log('function',id,button,event)
+  event.stopPropagation();
+  event.preventDefault();
+
+  var promResuelta = Promise.resolve(window.__addTocart(id));
+
+  promResuelta.then(function(){
+      if(button.classList.contains("add-to-cart-loader")&& !button.classList.contains("add-to-cart-isadded") && button.nextSibling.classList.contains("custom-spinner")) {
+        button.classList.remove("add-to-cart-loader");
+        button.classList.add("add-to-cart-isadded");
+        button.nextSibling.classList.remove("custom-spinner");
+      }
+  }).catch(e => {
+    console.log("An error has occurred " + e);
+    if(button.classList.contains("add-to-cart-loader") || button.classList.contains("add-to-cart-isadded") || button.nextSibling.classList.contains("custom-spinner")) {
+      button.classList.remove("add-to-cart-loader");
+      button.classList.remove("add-to-cart-isadded");
+      button.nextSibling.classList.remove("custom-spinner");
+    }
+  })
+
+  if(!button.classList.contains("add-to-cart-loader") && !button.nextSibling.classList.contains("custom-spinner")) {
+    button.classList.add("add-to-cart-loader");
+    button.nextSibling.classList.add("custom-spinner");
+  }
+
+  setTimeout(function(){
+      if(button.classList.contains("add-to-cart-isadded")) {
+        button.classList.remove("add-to-cart-isadded");
+      }
+  }, 2000);
 }

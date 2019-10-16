@@ -308,18 +308,18 @@ div#vtex-embedded {
 
 figure.webimpacto-naturitas-doofinder-0-x-df-card__image+div {
   position: relative;
-  min-height: 136px;
 }
 
 #vtex-embedded .df-addtocartmb {
+  position: relative;
   margin-top: 0px;
   height: 28px;
   display: flex;
 }
 
 .webimpacto-naturitas-doofinder-0-x-df-card__pricing {
-  position: absolute;
-  bottom: 0;
+  /*position: absolute;
+  bottom: 0;*/
 }
 
 .discounts {
@@ -368,4 +368,51 @@ figure.webimpacto-naturitas-doofinder-0-x-df-card__image+div {
   background-image: url("img/bag.svg");
   background-repeat: no-repeat;
   background-position: 12px 2px;
+}
+
+#vtex-embedded #df-pager__vtex-embedded {
+  margin-top: 30px;
+}
+
+#vtex-embedded #df-pager__vtex-embedded .df-pagination {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.add-to-cart-loader {
+  background-image: none!important;
+}
+
+.add-to-cart-isadded {
+  background-color: #c2d143!important;
+  box-shadow: 0 2px 0 0 #c2d143!important;
+  border-color: #c2d143!important;
+}
+
+.add-to-cart-notadded {
+  background-color: tomato!important;
+}
+
+.custom-spinner {
+  position: absolute;
+  top: 4px;
+  right: 9px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  border-top: 2px solid #ffffff;
+  width: 22px;
+  height: 22px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 0.5s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
