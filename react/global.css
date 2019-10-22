@@ -407,12 +407,106 @@ figure.webimpacto-naturitas-doofinder-0-x-df-card__image+div {
 }
 
 /* Safari */
+
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.webimpacto-naturitas-doofinder-0-x-df-results.custom-doofinder-grid {
+  display: grid!important;
+  grid-template-columns: 50% 50%;
+}
+
+@media(min-width: 992px) {
+  .webimpacto-naturitas-doofinder-0-x-df-results.custom-doofinder-grid {
+    grid-template-columns: 33% 33% 33%;
+  }
+}
+
+@media(min-width: 1200px) {
+  .webimpacto-naturitas-doofinder-0-x-df-results.custom-doofinder-grid {
+    grid-template-columns: 25% 25% 25% 25%;
+  }
+}
+
+.webimpacto-naturitas-doofinder-0-x-df-results.no-results-doofinder-grid .searchresult-block.content {
+  width: 100%;
+}
+
+.webimpacto-naturitas-doofinder-0-x-df-results.no-results-doofinder-grid {
+  max-width: 1217px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.webimpacto-naturitas-doofinder-0-x-df-results.no-results-doofinder-grid .searchresult-image-container {
+  /*background-image: url(./img/oops.png);*/
+  margin: auto;
+  text-align: center;
+  padding: 10px 0 20px;
+  /*background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: 10px;*/
+}
+
+.webimpacto-naturitas-doofinder-0-x-df-results.no-results-doofinder-grid .searchresult-image-container img {
+  /*visibility: hidden;*/
+}
+
+.webimpacto-naturitas-doofinder-0-x-df-results.no-results-doofinder-grid .searchresult-title-container .title {
+  color: #4a4a4a;
+  font-family: Quicksand;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+}
+
+.webimpacto-naturitas-doofinder-0-x-df-results.no-results-doofinder-grid .searchresult-subtitle-container {
+  color: #4a4a4a;
+  font-family: brandon-grotesque;
+  font-size: 16px;
+  line-height: 23px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.webimpacto-naturitas-doofinder-0-x-df-results.no-results-doofinder-grid .searchresult-subtitle-container p {
+  margin-bottom: .5rem;
+}
+
+.webimpacto-naturitas-doofinder-0-x-df-results.no-results-doofinder-grid .searchresult-tips-container {
+  max-width: 400px;
+  margin: auto;
+  background-color: #fbfaf9;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.webimpacto-naturitas-doofinder-0-x-df-results.no-results-doofinder-grid .searchresult-tips-container ul {
+  max-width: none;
+  margin: auto;
+  color: #4a4a4a;
+  font-family: brandon-grotesque;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: center;
+  padding-left: 0;
+  list-style: inside;
 }

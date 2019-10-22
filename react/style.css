@@ -91,22 +91,16 @@
 }
 
 .df-results {
-    display: grid;
-    min-width: 180px;
-    -ms-grid-columns: (minmax(180px, 1fr)) [auto-fill];
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    grid-column-gap: 1px;
-    grid-row-gap: 1px;
-    grid-auto-rows: min-content;
-    display: flex!important;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-}
-
-@media (min-width: 768px) {
-    .df-results {
-        
-    }
+  display: grid;
+  min-width: 180px;
+  -ms-grid-columns: (minmax(180px, 1fr)) [auto-fill];
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-column-gap: 1px;
+  grid-row-gap: 1px;
+  grid-auto-rows: min-content;
+  display: flex!important;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 [data-facets] .df-aside {
@@ -128,11 +122,6 @@
 }
 
 /* RESULTS */
-.df-results {
-    display: grid!important;
-    grid-template-columns: 50% 50%;
-}
-
 .df-card {
     display: flex;
     flex-direction: column;
@@ -143,18 +132,6 @@
     padding-top: 20px;
     padding-right: 15px;
     padding-left: 15px;
-}
-
-@media(min-width: 992px) {
-    .df-results {
-        grid-template-columns: 33% 33% 33%;
-    }
-}
-
-@media(min-width: 1200px) {
-    .df-results {
-        grid-template-columns: 25% 25% 25% 25%;
-    }
 }
 
 .df-card:hover {

@@ -20,7 +20,6 @@ const doofinderTemplateComponent = (
 const doofinderResultsTemplateComponent =
     <Fragment>
         {`{{#results}}`}
-
         <div className={styles[`df-card`]} data-role="result" data-id="{{id}}">
             {`{{#image_link}}`}
             <div className="discounts" data-id="{{id}}"><div className="triangle"><div className="discounts-container"></div></div></div>
@@ -53,14 +52,31 @@ const doofinderResultsTemplateComponent =
         </div>
         {`{{/results}}`}
         {`{{^results}}`}
-        <p className={styles["df-no-results"]}>{`{{#translate}}`}Sorry, no results found.{`{{/translate}}`}</p>
+          <div className="searchresult-block content">
+            <div className="searchresult-image-container">
+              <img src="https://naturitasit.vteximg.com.br/assets/vtex.file-manager-graphql/images/oops.png" />
+            </div>
+            <div className="searchresult-title-container">
+              <p className="title">{`{{#translate}}not-found-title{{/translate}}`}</p>
+            </div>
+            <div className="searchresult-subtitle-container">
+              <p>{`{{#translate}}not-found-subtitle1{{/translate}}`}</p>
+              <p>{`{{#translate}}not-found-subtitle2{{/translate}}`}</p>
+            </div>
+            <div className="searchresult-tips-container">
+              <ul>
+                <li>{`{{#translate}}not-found-tip1{{/translate}}`}</li>
+                <li>{`{{#translate}}not-found-tip2{{/translate}}`}</li>
+                <li>{`{{#translate}}not-found-tip3{{/translate}}`}</li>
+              </ul>
+            </div>
+          </div>
         {`{{/results}}`}
     </Fragment>
 
 const doofinderFacetsTemplateComponent = (
     <div className={`${styles["df-panel"]} df-panel df-panel-collapse`} id="{{panelElement}}"
         data-role="panel" data-facet="{{name}}">
-
         <a className={styles["df-panel__title"]} id="{{labelElement}}"
             data-role="panel-label" data-toggle="panel"
             href="#">
@@ -72,4 +88,4 @@ const doofinderFacetsTemplateComponent = (
 
 export const doofinderFacetsTemplate = ReactDOMServer.renderToString(doofinderFacetsTemplateComponent);
 export const doofinderResultsTemplate = ReactDOMServer.renderToString(doofinderResultsTemplateComponent);
-export const doofinderTemplate = ReactDOMServer.renderToString(doofinderTemplateComponent); 
+export const doofinderTemplate = ReactDOMServer.renderToString(doofinderTemplateComponent);
