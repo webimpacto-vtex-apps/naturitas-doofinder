@@ -1,6 +1,6 @@
 .df-panel-collapse {}
 
-.df-panel .df-term {
+.naturitasit-naturitas-doofinder-1-x-df-panel .df-term {
   padding: 4px 0px;
 }
 
@@ -53,7 +53,7 @@
   opacity: 0.6;
 }
 
-.df-panel .df-term .df-term__count {
+.naturitasit-naturitas-doofinder-1-x-df-panel .df-term .df-term__count {
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
@@ -194,11 +194,11 @@ span.valoracion-product {
   display: block;
 }
 
-.df-panel[data-collapse=true] .df-panel__content {
+.naturitasit-naturitas-doofinder-1-x-df-panel[data-collapse=true] .df-panel__content {
   display: none;
 }
 
-.df-panel__content {
+.naturitasit-naturitas-doofinder-1-x-df-panel .df-panel__content {
   padding: 18px!important;
 }
 
@@ -231,7 +231,7 @@ span.valoracion-product {
   cursor: pointer;
 }
 
-.df-header-title {
+.naturitasit-naturitas-doofinder-1-x-df-main .df-header-title {
   display: none;
   text-align: center;
 }
