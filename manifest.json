@@ -1,16 +1,9 @@
 {
     "name": "naturitas-doofinder",
-    "vendor": "webimpacto",
-    "version": "0.0.1",
+    "vendor": "naturitasit",
+    "version": "1.0.0",
     "title": "Doofinder",
     "description": "Doofinder",
-    "billingOptions": {
-        "termsURL": "",
-        "support": {
-            "url": "https://support.vtex.com/hc/requests"
-        },
-        "free": true
-    },
     "builders": {
         "react": "3.x",
         "store": "0.x",

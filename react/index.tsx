@@ -422,7 +422,7 @@ function customizarProductos(products: any) {
     var aux = p.subtitle
     var namePrint = p.title.replace('- ' + aux, '')
     var ele: any = document.querySelector(
-      ".webimpacto-naturitas-doofinder-0-x-df-card__title[data-title='" +
+      ".naturitasit-naturitas-doofinder-1-x-df-card__title[data-title='" +
         p.id +
         "']"
     )
@@ -574,15 +574,15 @@ function customAddToCart(id: any, button: any, event: any) {
 
 function customGrid(products: any) {
   if(products.length > 0) {
-    var grid: any = document.querySelector(".webimpacto-naturitas-doofinder-0-x-df-results")
+    var grid: any = document.querySelector(".naturitasit-naturitas-doofinder-1-x-df-results")
     if(grid) {
       grid.classList.add('custom-doofinder-grid');
     }
   } else {
-    var aside: any = document.querySelector(".webimpacto-naturitas-doofinder-0-x-df-aside");
-    var main: any = document.querySelector(".webimpacto-naturitas-doofinder-0-x-df-main");
+    var aside: any = document.querySelector(".naturitasit-naturitas-doofinder-1-x-df-aside");
+    var main: any = document.querySelector(".naturitasit-naturitas-doofinder-1-x-df-main");
     var header: any = document.querySelector("#df-header__vtex-embedded");
-    var grid: any = document.querySelector(".webimpacto-naturitas-doofinder-0-x-df-results")
+    var grid: any = document.querySelector(".naturitasit-naturitas-doofinder-1-x-df-results")
     if(grid && aside && main) {
       aside.style.display = "none";
       main.style.width = "100%";

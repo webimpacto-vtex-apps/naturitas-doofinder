@@ -202,19 +202,19 @@ span.valoracion-product {
   padding: 18px!important;
 }
 
-/*html[lang="it"] .webimpacto-naturitas-doofinder-0-x-df-aside:before {
+/*html[lang="it"] .naturitasit-naturitas-doofinder-1-x-df-aside:before {
   content: "Filtri";
 }*/
 
-.df-panel-collapse[data-collapse=true] .webimpacto-naturitas-doofinder-0-x-df-panel__title {
+.df-panel-collapse[data-collapse=true] .naturitasit-naturitas-doofinder-1-x-df-panel__title {
   padding: 18px;
 }
 
-.df-panel-collapse[data-collapse=false] .webimpacto-naturitas-doofinder-0-x-df-panel__title {
+.df-panel-collapse[data-collapse=false] .naturitasit-naturitas-doofinder-1-x-df-panel__title {
   padding: 18px 18px 0px 18px;
 }
 
-.df-panel-collapse[data-collapse=true] .webimpacto-naturitas-doofinder-0-x-df-panel__title:after {
+.df-panel-collapse[data-collapse=true] .naturitasit-naturitas-doofinder-1-x-df-panel__title:after {
   content: "+";
   top: 24px;
   right: 20px;
@@ -232,6 +232,7 @@ span.valoracion-product {
 }
 
 .df-header-title {
+  display: none;
   text-align: center;
 }
 
@@ -306,7 +307,7 @@ div#vtex-embedded {
   line-height: 30px;
 }
 
-figure.webimpacto-naturitas-doofinder-0-x-df-card__image+div {
+figure.naturitasit-naturitas-doofinder-1-x-df-card__image+div {
   position: relative;
 }
 
@@ -317,7 +318,7 @@ figure.webimpacto-naturitas-doofinder-0-x-df-card__image+div {
   display: flex;
 }
 
-.webimpacto-naturitas-doofinder-0-x-df-card__pricing {
+.naturitasit-naturitas-doofinder-1-x-df-card__pricing {
   /*position: absolute;
   bottom: 0;*/
 }
@@ -426,35 +427,35 @@ figure.webimpacto-naturitas-doofinder-0-x-df-card__image+div {
   }
 }
 
-.webimpacto-naturitas-doofinder-0-x-df-results.custom-doofinder-grid {
+.naturitasit-naturitas-doofinder-1-x-df-results.custom-doofinder-grid {
   display: grid!important;
   grid-template-columns: 50% 50%;
 }
 
 @media(min-width: 992px) {
-  .webimpacto-naturitas-doofinder-0-x-df-results.custom-doofinder-grid {
+  .naturitasit-naturitas-doofinder-1-x-df-results.custom-doofinder-grid {
     grid-template-columns: 33% 33% 33%;
   }
 }
 
 @media(min-width: 1200px) {
-  .webimpacto-naturitas-doofinder-0-x-df-results.custom-doofinder-grid {
+  .naturitasit-naturitas-doofinder-1-x-df-results.custom-doofinder-grid {
     grid-template-columns: 25% 25% 25% 25%;
   }
 }
 
-.webimpacto-naturitas-doofinder-0-x-df-results.no-results-doofinder-grid .searchresult-block.content {
+.naturitasit-naturitas-doofinder-1-x-df-results.no-results-doofinder-grid .searchresult-block.content {
   width: 100%;
 }
 
-.webimpacto-naturitas-doofinder-0-x-df-results.no-results-doofinder-grid {
+.naturitasit-naturitas-doofinder-1-x-df-results.no-results-doofinder-grid {
   max-width: 1217px;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
 }
 
-.webimpacto-naturitas-doofinder-0-x-df-results.no-results-doofinder-grid .searchresult-image-container {
+.naturitasit-naturitas-doofinder-1-x-df-results.no-results-doofinder-grid .searchresult-image-container {
   /*background-image: url(./img/oops.png);*/
   margin: auto;
   text-align: center;
@@ -464,11 +465,11 @@ figure.webimpacto-naturitas-doofinder-0-x-df-card__image+div {
   background-position-y: 10px;*/
 }
 
-.webimpacto-naturitas-doofinder-0-x-df-results.no-results-doofinder-grid .searchresult-image-container img {
+.naturitasit-naturitas-doofinder-1-x-df-results.no-results-doofinder-grid .searchresult-image-container img {
   /*visibility: hidden;*/
 }
 
-.webimpacto-naturitas-doofinder-0-x-df-results.no-results-doofinder-grid .searchresult-title-container .title {
+.naturitasit-naturitas-doofinder-1-x-df-results.no-results-doofinder-grid .searchresult-title-container .title {
   color: #4a4a4a;
   font-family: Quicksand;
   font-size: 22px;
@@ -477,7 +478,7 @@ figure.webimpacto-naturitas-doofinder-0-x-df-card__image+div {
   text-align: center;
 }
 
-.webimpacto-naturitas-doofinder-0-x-df-results.no-results-doofinder-grid .searchresult-subtitle-container {
+.naturitasit-naturitas-doofinder-1-x-df-results.no-results-doofinder-grid .searchresult-subtitle-container {
   color: #4a4a4a;
   font-family: brandon-grotesque;
   font-size: 16px;
@@ -486,11 +487,11 @@ figure.webimpacto-naturitas-doofinder-0-x-df-card__image+div {
   margin-bottom: 2rem;
 }
 
-.webimpacto-naturitas-doofinder-0-x-df-results.no-results-doofinder-grid .searchresult-subtitle-container p {
+.naturitasit-naturitas-doofinder-1-x-df-results.no-results-doofinder-grid .searchresult-subtitle-container p {
   margin-bottom: .5rem;
 }
 
-.webimpacto-naturitas-doofinder-0-x-df-results.no-results-doofinder-grid .searchresult-tips-container {
+.naturitasit-naturitas-doofinder-1-x-df-results.no-results-doofinder-grid .searchresult-tips-container {
   max-width: 400px;
   margin: auto;
   background-color: #fbfaf9;
@@ -498,7 +499,7 @@ figure.webimpacto-naturitas-doofinder-0-x-df-card__image+div {
   padding: 20px;
 }
 
-.webimpacto-naturitas-doofinder-0-x-df-results.no-results-doofinder-grid .searchresult-tips-container ul {
+.naturitasit-naturitas-doofinder-1-x-df-results.no-results-doofinder-grid .searchresult-tips-container ul {
   max-width: none;
   margin: auto;
   color: #4a4a4a;
