@@ -129,7 +129,7 @@
 }
 
 .df-panel[data-facet="reviews_score"] .df-term .df-term__value:after {
-  background-image: url(./img/star_on.png);
+  background-image: url(./img/star_on.png?v);
   content: "";
   display: block;
   height: 13px;

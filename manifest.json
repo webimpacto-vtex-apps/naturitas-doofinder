@@ -1,7 +1,7 @@
 {
     "name": "naturitas-doofinder",
     "vendor": "naturitasit",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "title": "Doofinder",
     "description": "Doofinder",
     "builders": {
