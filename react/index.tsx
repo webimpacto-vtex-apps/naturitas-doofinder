@@ -314,6 +314,7 @@ function test(result: any, account: any) {
 }
 
 function customizarFacetas(facets: any) {
+  console.log('wim',facets);
   if (typeof facets.categories !== 'undefined') {
     if (typeof facets.categories !== 'undefined' && typeof facets.categories.terms.buckets !== 'undefined') {
       facets.categories.terms.buckets.forEach(function(c: any) {
@@ -390,6 +391,52 @@ function customizarFacetas(facets: any) {
     }
     if (typeof facets.content_format !== 'undefined' && typeof facets.content_format.terms.buckets !== 'undefined') {
       facets.content_format.terms.buckets.forEach(function(c: any) {
+        var term = c['key']
+        const name: any = document.querySelector(
+          '.df-term[data-value="' + term + '"] span.df-term__value'
+        )
+        if (name) {
+          name.innerHTML = term.charAt(0).toUpperCase() + term.slice(1)
+        }
+        const quantity: any = document.querySelector(
+          '.df-term[data-value="' + term + '"] span.df-term__count'
+        )
+        if (quantity) {
+          quantity.innerHTML = '(' + c.doc_count + ')'
+        }
+        const wrapper: any = document.querySelector(
+          '.df-term[data-value="' + term + '"] span.df-term__value'
+        )
+        if (wrapper && quantity) {
+          wrapper.appendChild(quantity)
+        }
+      })
+    }
+    if (typeof facets["g:custom_label_1"] !== 'undefined' && typeof facets["g:custom_label_1"].buckets !== 'undefined') {
+      facets["g:custom_label_1"].terms.buckets.forEach(function(c: any) {
+        var term = c['key']
+        const name: any = document.querySelector(
+          '.df-term[data-value="' + term + '"] span.df-term__value'
+        )
+        if (name) {
+          name.innerHTML = term.charAt(0).toUpperCase() + term.slice(1)
+        }
+        const quantity: any = document.querySelector(
+          '.df-term[data-value="' + term + '"] span.df-term__count'
+        )
+        if (quantity) {
+          quantity.innerHTML = '(' + c.doc_count + ')'
+        }
+        const wrapper: any = document.querySelector(
+          '.df-term[data-value="' + term + '"] span.df-term__value'
+        )
+        if (wrapper && quantity) {
+          wrapper.appendChild(quantity)
+        }
+      })
+    }
+    if (typeof facets["g:custom_label_2"] !== 'undefined' && typeof facets["g:custom_label_2"].terms.buckets !== 'undefined') {
+      facets["g:custom_label_2"].terms.buckets.forEach(function(c: any) {
         var term = c['key']
         const name: any = document.querySelector(
           '.df-term[data-value="' + term + '"] span.df-term__value'

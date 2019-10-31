@@ -9,7 +9,9 @@
 #vtex-embedded .df-panel[data-facet='categories'] .df-term .df-term__value,
 #vtex-embedded .df-panel[data-facet='brand'] .df-term .df-term__value,
 #vtex-embedded .df-panel[data-facet='flags'] .df-term .df-term__value,
-#vtex-embedded .df-panel[data-facet='content_format'] .df-term .df-term__value {
+#vtex-embedded .df-panel[data-facet='content_format'] .df-term .df-term__value,
+#vtex-embedded .df-panel[data-facet='g:custom_label_1'] .df-term .df-term__value,
+#vtex-embedded .df-panel[data-facet='g:custom_label_2'] .df-term .df-term__value {
   display: flex;
   flex-wrap: wrap;
   position: relative;
@@ -23,7 +25,9 @@
 #vtex-embedded .df-panel[data-facet='categories'] .df-term .df-term__value::before,
 #vtex-embedded .df-panel[data-facet='brand'] .df-term .df-term__value::before,
 #vtex-embedded .df-panel[data-facet='flags'] .df-term .df-term__value::before,
-#vtex-embedded .df-panel[data-facet='content_format'] .df-term .df-term__value::before {
+#vtex-embedded .df-panel[data-facet='content_format'] .df-term .df-term__value::before,
+#vtex-embedded .df-panel[data-facet='g:custom_label_1'] .df-term .df-term__value::before,
+#vtex-embedded .df-panel[data-facet='g:custom_label_2'] .df-term .df-term__value::before {
   content: " ";
   position: absolute;
   left: 0;
@@ -40,7 +44,9 @@
 #vtex-embedded .df-panel[data-facet='categories'] .df-term[data-selected] .df-term__value::before,
 #vtex-embedded .df-panel[data-facet='brand'] .df-term[data-selected] .df-term__value::before,
 #vtex-embedded .df-panel[data-facet='flags'] .df-term[data-selected] .df-term__value::before,
-#vtex-embedded .df-panel[data-facet='content_format'] .df-term[data-selected] .df-term__value::before {
+#vtex-embedded .df-panel[data-facet='content_format'] .df-term[data-selected] .df-term__value::before,
+#vtex-embedded .df-panel[data-facet='g:custom_label_1'] .df-term[data-selected] .df-term__value::before,
+#vtex-embedded .df-panel[data-facet='g:custom_label_2'] .df-term[data-selected] .df-term__value::before {
   background-color: #5CB8A3;
 }
 
