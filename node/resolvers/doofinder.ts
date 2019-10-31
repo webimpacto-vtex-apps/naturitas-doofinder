@@ -10,7 +10,7 @@ declare var process: {
 const appId = process.env.VTEX_APP_ID
 
 export async function searchDoofinderProducts(_root: any, {query}: {query:string}, ctx: ServiceContext) {
-  
+
   const doofinderProducts = await doofinderAPISearch(ctx, query)
   const vtexProducts = await vtexSearch(ctx, doofinderProducts.results)
 
@@ -26,7 +26,7 @@ async function doofinderAPISearch(ctx: ServiceContext, query: string) {
     'Proxy-Authorization': ctx.vtex.authToken,
     'VtexIdclientAutCookie': ctx.cookies.get('VtexIdclientAutCookie')
   }
-  
+
   const params = {
     hashid: settings.doofHashId,
     query,
@@ -50,7 +50,7 @@ async function vtexSearch(ctx: ServiceContext, doofinderProductsId: []) {
     'VtexIdclientAutCookie': ctx.cookies.get('VtexIdclientAutCookie')
   }
 
-  let results = await axios.get(`https://naturitasit.myvtex.com/api/catalog_system/pub/products/search?${searchIdProductParams}`, { headers })
+  let results = await axios.get(`/api/catalog_system/pub/products/search?${searchIdProductParams}`, { headers })
   return results.data;
 }
 
@@ -66,7 +66,7 @@ async function orderProducts(doofinderProducts: any, vtexProducts: any) {
   })
 }
 
-/** 
+/**
    * Transform [{id: xx}, {id: yy}] to => fq=productId:xx&fq=productId:yy
    * for VTEX Search API Query
    */

@@ -20,9 +20,12 @@ if (canUseDOM) {
     console.error("Doofinder HashID or Region is empty. Please fill at the APP config in VTEX Admin");
   }*/
 
+  let account = '';
+
   if (__doofHashId__ && __doofRegion__) {
     switch (__doofHashId__) {
       case "fe457aad4714f737669d109943063f0c":
+        account = 'naturitasit-naturitas-doofinder-2-x-';
         window.dfEmbeddedLayers = [
           {
             queryInput: '#query_input_id',
@@ -81,13 +84,14 @@ if (canUseDOM) {
                 queryInput.dispatchEvent(evt)
               },
               resultsReceived: function(response: any) {
-                test(response)
+                test(response, account)
               },
             },
           },
         ]
         break;
       case "6f0d9e1c4faf2c184a944612d375349b":
+        account = 'naturitasfr-naturitas-doofinder-2-x-';
         window.dfEmbeddedLayers = [
           {
             queryInput: '#query_input_id',
@@ -146,13 +150,14 @@ if (canUseDOM) {
                 queryInput.dispatchEvent(evt)
               },
               resultsReceived: function(response: any) {
-                test(response)
+                test(response, account)
               },
             },
           },
         ]
         break;
       case "7331ac1da8af88edebf1b581fdc00cdb":
+        account = 'naturitaspt-naturitas-doofinder-2-x-';
         window.dfEmbeddedLayers = [
           {
             queryInput: '#query_input_id',
@@ -211,7 +216,7 @@ if (canUseDOM) {
                 queryInput.dispatchEvent(evt)
               },
               resultsReceived: function(response: any) {
-                test(response)
+                test(response, account)
               },
             },
           },
@@ -276,11 +281,14 @@ if (canUseDOM) {
                 queryInput.dispatchEvent(evt)
               },
               resultsReceived: function(response: any) {
-                test(response)
+                test(response, account)
               },
             },
           },
         ]
+
+        account = 'naturitasit-naturitas-doofinder-2-x-';
+
         break;
     }
 
@@ -295,13 +303,13 @@ if (canUseDOM) {
   }
 }
 
-function test(result: any) {
+function test(result: any, account: any) {
   if (typeof result.facets !== 'undefined') {
     customizarFacetas(result.facets)
   }
   if (typeof result.results !== 'undefined') {
-    customizarProductos(result.results)
-    customGrid(result.results)
+    customizarProductos(result.results, account)
+    customGrid(result.results, account)
   }
 }
 
@@ -417,12 +425,12 @@ function customizarFacetas(facets: any) {
   }
 }
 
-function customizarProductos(products: any) {
+function customizarProductos(products: any, account: any) {
   products.forEach(function(p: any) {
     var aux = p.subtitle
     var namePrint = p.title.replace('- ' + aux, '')
     var ele: any = document.querySelector(
-      ".naturitasit-naturitas-doofinder-1-x-df-card__title[data-title='" +
+      "." + account + "df-card__title[data-title='" +
         p.id +
         "']"
     )
@@ -451,7 +459,7 @@ function customizarProductos(products: any) {
 
     if (auxPrice == auxOldPrice) {
       var eleprice: any = document.querySelector(
-        ".naturitasit-naturitas-doofinder-1-x-df-card__pricing[data-id='" + p.id + "'] .naturitasit-naturitas-doofinder-1-x-df-card__price--old"
+        "." + account + "df-card__pricing[data-id='" + p.id + "'] ." + account + "df-card__price--old"
       )
       if (eleprice) {
         eleprice.innerHTML = ''
@@ -581,17 +589,17 @@ function customAddToCart(id: any, button: any, event: any) {
   }, 2000)
 }
 
-function customGrid(products: any) {
+function customGrid(products: any, account: any) {
   if(products.length > 0) {
-    var grid: any = document.querySelector(".naturitasit-naturitas-doofinder-1-x-df-results")
+    var grid: any = document.querySelector("." + account + "df-results")
     if(grid) {
       grid.classList.add('custom-doofinder-grid');
     }
   } else {
-    var aside: any = document.querySelector(".naturitasit-naturitas-doofinder-1-x-df-aside");
-    var main: any = document.querySelector(".naturitasit-naturitas-doofinder-1-x-df-main");
+    var aside: any = document.querySelector("." + account + "df-aside");
+    var main: any = document.querySelector("." + account + "df-main");
     var header: any = document.querySelector("#df-header__vtex-embedded");
-    var grid: any = document.querySelector(".naturitasit-naturitas-doofinder-1-x-df-results")
+    var grid: any = document.querySelector("." + account + "df-results")
     if(grid && aside && main) {
       aside.style.display = "none";
       main.style.width = "100%";
