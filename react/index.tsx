@@ -296,18 +296,18 @@ if (canUseDOM) {
 }
 
 function test(result: any) {
-  if (typeof result.facets != 'undefined') {
+  if (typeof result.facets !== 'undefined') {
     customizarFacetas(result.facets)
   }
-  if (typeof result.results != 'undefined') {
+  if (typeof result.results !== 'undefined') {
     customizarProductos(result.results)
     customGrid(result.results)
   }
 }
 
 function customizarFacetas(facets: any) {
-  if (typeof facets.categories != 'undefined') {
-    if (typeof facets.categories.terms.buckets != 'undefined') {
+  if (typeof facets.categories !== 'undefined') {
+    if (typeof facets.categories !== 'undefined' && typeof facets.categories.terms.buckets !== 'undefined') {
       facets.categories.terms.buckets.forEach(function(c: any) {
         var term = c['key']
         var termArray = term.split('-')
@@ -340,7 +340,7 @@ function customizarFacetas(facets: any) {
         }
       })
     }
-    if (typeof facets.brand.terms.buckets != 'undefined') {
+    if (typeof facets.brand !== 'undefined' && typeof facets.brand.terms.buckets !== 'undefined') {
       facets.brand.terms.buckets.forEach(function(c: any) {
         var term = c['key']
         const quantity: any = document.querySelector(
@@ -357,7 +357,7 @@ function customizarFacetas(facets: any) {
         }
       })
     }
-    if (typeof facets.flags.terms.buckets != 'undefined') {
+    if (typeof facets.flags !== 'undefined' && typeof facets.flags.terms.buckets !== 'undefined') {
       facets.flags.terms.buckets.forEach(function(c: any) {
         var term = c['key']
         const name: any = document.querySelector(
@@ -380,7 +380,7 @@ function customizarFacetas(facets: any) {
         }
       })
     }
-    if (typeof facets.content_format.terms.buckets != 'undefined') {
+    if (typeof facets.content_format !== 'undefined' && typeof facets.content_format.terms.buckets !== 'undefined') {
       facets.content_format.terms.buckets.forEach(function(c: any) {
         var term = c['key']
         const name: any = document.querySelector(
@@ -403,7 +403,7 @@ function customizarFacetas(facets: any) {
         }
       })
     }
-    if (typeof facets['reviews_score'].terms.buckets != 'undefined') {
+    if (typeof facets['reviews_score'] !== 'undefined' && typeof facets['reviews_score'].terms.buckets !== 'undefined') {
       facets['reviews_score'].terms.buckets.forEach(function(c: any) {
         var term = c['key']
         const quantity: any = document.querySelector(
@@ -451,10 +451,17 @@ function customizarProductos(products: any) {
 
     if (auxPrice == auxOldPrice) {
       var eleprice: any = document.querySelector(
-        ".df-card__pricing[data-id='" + p.id + "'] .df-card__price--old"
+        ".naturitasit-naturitas-doofinder-1-x-df-card__pricing[data-id='" + p.id + "'] .naturitasit-naturitas-doofinder-1-x-df-card__price--old"
       )
       if (eleprice) {
         eleprice.innerHTML = ''
+      }
+
+      var queryDescuento: any = document.querySelector(
+        ".discounts[data-id='" + p.id + "'] .discounts-container"
+      )
+      if(queryDescuento) {
+        queryDescuento.parentNode.remove();
       }
     } else {
       var descuento = (
@@ -462,11 +469,13 @@ function customizarProductos(products: any) {
         (parseFloat(auxPrice.replace(',', '.')) * 100) /
           parseFloat(auxOldPrice.replace(',', '.'))
       ).toFixed(0)
+
       var queryDescuento: any = document.querySelector(
         ".discounts[data-id='" + p.id + "'] .discounts-container"
       )
-      if (queryDescuento) {
-        queryDescuento.innerHTML = '-' + descuento + '%'
+
+      if (queryDescuento && descuento) {
+        queryDescuento.innerHTML = '-' + descuento + '%';
       }
     }
 
@@ -483,7 +492,7 @@ function customizarProductos(products: any) {
     }
 
     if (
-      typeof p.reviews_data != 'undefined' &&
+      typeof p.reviews_data !== 'undefined' &&
       typeof p.reviews_data != null &&
       p.reviews_data != null
     ) {
