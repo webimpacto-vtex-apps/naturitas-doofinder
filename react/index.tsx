@@ -314,7 +314,6 @@ function test(result: any, account: any) {
 }
 
 function customizarFacetas(facets: any) {
-  console.log('wim',facets);
   if (typeof facets.categories !== 'undefined') {
     if (typeof facets.categories !== 'undefined' && typeof facets.categories.terms.buckets !== 'undefined') {
       facets.categories.terms.buckets.forEach(function(c: any) {
