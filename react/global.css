@@ -566,3 +566,13 @@ figure.naturitaspt-naturitas-doofinder-2-x-df-card__image+div {
   padding-left: 0;
   list-style: inside;
 }
+
+.naturitaspt-naturitas-doofinder-2-x-df-card__pricing + .df-addtocartmb > .my-df-addtocart-btn:before {
+  content: "VER PRODUTO";
+}
+.naturitasfr-naturitas-doofinder-2-x-df-card__pricing + .df-addtocartmb > .my-df-addtocart-btn:before {
+  content: "VOIR PRODUIT";
+}
+.naturitasit-naturitas-doofinder-2-x-df-card__pricing + .df-addtocartmb > .my-df-addtocart-btn:before {
+  content: "Guarda il prodotto";
+}
