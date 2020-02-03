@@ -1,72 +1,74 @@
 {
-    "name": "naturitas-doofinder",
-    "vendor": "naturitasit",
-    "version": "2.0.5",
-    "title": "Doofinder",
-    "description": "Doofinder",
-    "builders": {
-        "react": "3.x",
-        "store": "0.x",
-        "pixel": "0.x",
-        "node": "4.x",
-        "graphql": "1.x"
+  "name": "naturitas-doofinder",
+  "vendor": "naturitasit",
+  "version": "2.0.5",
+  "title": "Doofinder",
+  "description": "Doofinder",
+  "builders": {
+    "react": "3.x",
+    "store": "0.x",
+    "pixel": "0.x",
+    "node": "4.x",
+    "graphql": "1.x"
+  },
+  "dependencies": {
+    "vtex.pixel-interfaces": "1.x",
+    "vtex.store-header": "2.x",
+    "vtex.store": "2.x"
+  },
+  "settingsSchema": {
+    "title": "doofinder",
+    "type": "object",
+    "properties": {
+      "doofHashId": {
+        "title": "Hash ID",
+        "description": "Enter the Hash ID of your Doofinder Search Engine",
+        "type": "string"
+      },
+      "doofRegion": {
+        "title": "Region",
+        "description": "Enter the region of your Doofinder Search Engine",
+        "type": "string",
+        "enum": [
+          "eu1",
+          "us1"
+        ]
+      },
+      "doofApiKey": {
+        "title": "Api KEY",
+        "description": "Enter the your Doofinder API Key",
+        "type": "string"
+      }
+    }
+  },
+  "policies": [
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "httpstat.us",
+        "path": "*"
+      }
     },
-    "dependencies": {
-        "vtex.pixel-interfaces": "1.x",
-        "vtex.store-header": "2.x",
-        "vtex.store": "2.x"
+    {
+      "name": "colossus-fire-event"
     },
-    "settingsSchema": {
-        "title": "doofinder",
-        "type": "object",
-        "properties": {
-            "doofHashId": {
-                "title": "Hash ID",
-                "description": "Enter the Hash ID of your Doofinder Search Engine",
-                "type": "string"
-            },
-            "doofRegion": {
-                "title": "Region",
-                "description": "Enter the region of your Doofinder Search Engine",
-                "type": "string",
-                "enum": ["eu1", "us1"]
-            },
-            "doofApiKey": {
-                "title": "Api KEY",
-                "description": "Enter the your Doofinder API Key",
-                "type": "string"
-            }
-        }
+    {
+      "name": "colossus-write-logs"
     },
-    "policies": [{
-            "name": "outbound-access",
-            "attrs": {
-                "host": "httpstat.us",
-                "path": "*"
-            }
-        },
-        {
-            "name": "colossus-fire-event"
-        },
-        {
-            "name": "colossus-write-logs"
-        },
-
-
-        {
-            "name": "outbound-access",
-            "attrs": {
-                "host": "us1-search.doofinder.com",
-                "path": "*"
-            }
-        },
-        {
-            "name": "outbound-access",
-            "attrs": {
-                "host": "eu1-search.doofinder.com",
-                "path": "*"
-            }
-        }
-    ],
-    "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "us1-search.doofinder.com",
+        "path": "*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "eu1-search.doofinder.com",
+        "path": "*"
+      }
+    }
+  ],
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
