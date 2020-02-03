@@ -44,7 +44,7 @@ const doofinderResultsTemplateComponent =
             </div>
             {`{{/price}}`}
             <div className="df-addtocartmb">
-                <a href="{{#url-params}}{{link}}{{/url-params}}" className="my-df-addtocart-btn btn-cart ajx-cart btn" data-addtocart="{{id}}">
+                <a href="{{#url-params}}{{link}}{{/url-params}}" className="my-df-addtocart-btn btn-cart btn" data-addtocart="{{id}}">
                     </a>
                 <a className="btn btn-primary addToCart" data-id="{{#id}}{{id}}{{/id}}"></a>
                 <div></div>
