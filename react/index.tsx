@@ -528,8 +528,10 @@ function customizarProductos(products: any, account: any) {
         ".discounts[data-id='" + p.id + "'] .discounts-container"
       )
 
-      if (queryDescuento && descuento) {
+      if (queryDescuento && descuento && parseInt(descuento) >= 10) {
         queryDescuento.innerHTML = '-' + descuento + '%';
+      } else {
+        queryDescuento.parentNode.remove()
       }
     }
 
