@@ -68,6 +68,7 @@ if (canUseDOM) {
                 'not-found-tip1': 'Verifica la tua ortografia e cerca di nuovo',
                 'not-found-tip2': 'Prova con un altro termine di ricerca',
                 'not-found-tip3': 'Esplora le nostre categorie',
+                'View less…': 'Vedi di meno'
               },
             },
             callbacks: {
@@ -265,6 +266,7 @@ if (canUseDOM) {
                 'not-found-tip1': 'Verifica la tua ortografia e cerca di nuovo',
                 'not-found-tip2': 'Prova con un altro termine di ricerca',
                 'not-found-tip3': 'Esplora le nostre categorie',
+                'View less…': 'Vedi di meno'
               },
             },
             callbacks: {
